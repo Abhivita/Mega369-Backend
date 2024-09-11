@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const env = require("dotenv");
-const plotrouter=require("./admin/routes/adminRoutes")
+const routes=require("./admin/routes/adminRoutes")
 const app = express();
 app.use(express.json());
 env.config();
@@ -14,4 +14,4 @@ mongoose
   .connect(process.env.mongoDbUrl)
   .then(() => console.log("Db is connected Succesfully"))
   .catch((e) => console.log(e));
-app.use("/plot",plotrouter)
+app.use("/plot",routes)

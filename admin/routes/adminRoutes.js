@@ -1,9 +1,12 @@
 const express=require("express");
-const plotrouter=express.Router();
+const routes=express.Router();
 const controller=require("../controllers/plotsController");
-
-plotrouter.post('/addplot',controller.plotRegistration)
-plotrouter.get('/getplotdata',controller.getplot)
-plotrouter.put('/updateplot/:id',controller.updateplotdata)
-plotrouter.delete("/plotdelete/:id",controller.deleteplot)
-module.exports=plotrouter
+const cors=require("cors")
+let corsOptions={
+    origin:["http://localhost:5000"]
+}
+routes.post('/addplot',cors(corsOptions), controller.plotRegistration)
+routes.get('/getplotdata',cors(corsOptions),controller.getplot)
+routes.put('/updateplot/:id',cors(corsOptions),controller.updateplotdata)
+routes.delete("/plotdelete/:id",cors(corsOptions),controller.deleteplot)
+module.exports=routes
