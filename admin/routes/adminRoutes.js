@@ -1,13 +1,19 @@
-const express = require('express')
-const routes = express.Router();
+
+const express=require("express");
+const routes=express.Router();
+const controller=require("../controllers/plotsController");
+const cors=require("cors")
+let corsOptions={
+    origin:["http://localhost:5000"]
+}
+routes.post('/addplot',cors(corsOptions), controller.plotRegistration)
+routes.get('/getplotdata',cors(corsOptions),controller.getplot)
+routes.put('/updateplot/:id',cors(corsOptions),controller.updateplotdata)
+routes.delete("/plotdelete/:id",cors(corsOptions),controller.deleteplot)
+
+
 const admincontroller = require('../controllers/adminController')
 const farmlandcontroller = require('../controllers/farmlandsController')
-const cors = require('cors');
-
-let corsOptions = {
-    origin: ["http://localhost:5000"]
-}
-
        // admim 
 routes.post("/addAdmin", cors(corsOptions),admincontroller.admin);
 routes.post("/adminlogin/:id", cors(corsOptions), admincontroller.adminlogin);
@@ -20,3 +26,4 @@ routes.delete('/farmlanddelete/:id',cors(corsOptions),farmlandcontroller.deletef
 
 
 module.exports = routes;
+

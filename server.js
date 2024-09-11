@@ -1,9 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const env = require("dotenv");
+
+const routes=require("./admin/routes/adminRoutes")
+
 const adminroutes = require('./admin/routes/adminRoutes');
 
 const cors = require('cors')
+
 
 const app = express();
 app.use(express.json());
@@ -20,4 +24,3 @@ mongoose
   .catch((e) => console.log(e));
 
 app.use('/admin',adminroutes);
-app.use('/farmland',adminroutes)
