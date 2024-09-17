@@ -5,11 +5,19 @@ const cors = require('cors');
 const customerroutes = require('./customer/routes/customerRoutes')
 
 
+const routes=require("./admin/routes/adminRoutes")
+
+const adminroutes = require('./admin/routes/adminRoutes');
+
+const cors = require('cors')
+
+
 const app = express();
 app.use(cors());
 
 app.use(express.json());
 env.config();
+app.use(cors());
 
 
 
@@ -23,3 +31,5 @@ mongoose
   .catch((e) => console.log(e));
 
  app.use("/customer",customerroutes)
+app.use('/admin',adminroutes);
+
