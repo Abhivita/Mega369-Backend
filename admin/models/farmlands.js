@@ -24,7 +24,7 @@ const farmland = new mongoose.Schema({
     purchesdate: {
         type: String
     },
-    isactive: {
+    availabilty: {
         type: String,
         require: true
     },
@@ -42,7 +42,8 @@ const farmland = new mongoose.Schema({
     },
     photo:{
         type:[String]
-    }
+    },
+
 });
 
 module.exports = mongoose.model('farmland',farmland);
