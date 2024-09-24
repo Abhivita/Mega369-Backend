@@ -16,10 +16,10 @@ const admincontroller = require('../controllers/adminController')
 const farmlandcontroller = require('../controllers/farmlandsController')
        // admim 
 routes.post("/addAdmin", cors(corsOptions),admincontroller.admin);
-routes.post("/adminlogin/:id", cors(corsOptions), admincontroller.adminlogin);
+routes.post("/adminlogin", cors(corsOptions), admincontroller.adminlogin);
 
       //farmland
-routes.post('/farmland-add',cors(corsOptions),farmlandcontroller.addfarland);
+routes.post('/farmland-add',cors(corsOptions),farmlandcontroller.addfarmland);
 routes.put('/farmlandupdate/:id',cors(corsOptions),farmlandcontroller.farmlandupdate);
 routes.get('/farmlandget',cors(corsOptions),farmlandcontroller.getfarmland);
 routes.delete('/farmlanddelete/:id',cors(corsOptions),farmlandcontroller.deletefarmland);

@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
 const farmlandphotoupload = multer({ storage, limits: { fileSize: 100000 } });
 const uploadfarmland = farmlandphotoupload.array('files');
 
-exports.addfarland = async (req, res) => {
+exports.addfarmland = async (req, res) => {
     uploadfarmland(req, res, async (err) => {
         try {
             if (!req.files || req.files.length == 0) {
@@ -32,6 +32,7 @@ exports.addfarland = async (req, res) => {
                 farmworks: req.body.farmworks,
                 watersource: req.body.watersource,
                 status: req.body.status,
+                features:req.body.features,
                 photo: uploadmultiplephotos
             }
             const farmland = new farmlandModel(farmlandData);
@@ -71,6 +72,7 @@ exports.farmlandupdate = async (req, res) => {
                 farmworks: req.body.farmworks,
                 watersource: req.body.watersource,
                 status: req.body.status,
+                features:req.body.features,
                 photo: uploadmultiplephotos
             }
             const farmland = await farmlandModel.findByIdAndUpdate(req.params.id, farmlandData);

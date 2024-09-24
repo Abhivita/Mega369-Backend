@@ -43,6 +43,9 @@ const farmland = new mongoose.Schema({
     photo:{
         type:[String]
     },
+    features:{
+        type:String
+    }
 
 });
 
