@@ -22,11 +22,13 @@ exports.plotRegistration = async (req, res) => {
       const photoFilenames = req.files.map((file) => file.filename);
 
       const plotData = {
-        id: req.body.id,
+        number: req.body.number,
         title: req.body.title,
         price: req.body.price,
         address: req.body.address,
         image: photoFilenames,
+        latitude:req.body.latitude,
+        longitude:req.body.longitude,
         city:req.body.city,
         description:req.body.description,
         size:req.body.size,
@@ -74,11 +76,12 @@ exports.updateplotdata= async (req, res) => {
     }
     try {
       const plotData = {
-        id: req.body.id,
+        number: req.body.number,
         title: req.body.title,
         price: req.body.price,
         address: req.body.address,
-      
+        latitude:req.body.latitude,
+        longitude:req.body.longitude,
         city:req.body.city,
         description:req.body.description,
         size:req.body.size,

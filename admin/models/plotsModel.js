@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 const plotschema = new mongoose.Schema({
-    id:{
+    number:{
       type:Number  
     },
     title:{
@@ -17,7 +17,12 @@ type:String
     required:true
 
     },
-
+    latitude:{
+        type:String
+            },
+    longitude:{
+    type:String
+        },
     city:{
 type:String
     },
