@@ -18,7 +18,7 @@ exports.customerlogin = async (req, res) => {
     try {
       const customer = await customermodel.findOne({
         email: req.body.email,
-        name: req.body.name,
+        password: req.body.password,
       });
       if (!customer) {
         return res.status(404).json("error");
